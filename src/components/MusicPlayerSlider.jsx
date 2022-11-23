@@ -77,12 +77,19 @@ const TinyText = styled(Typography)({
     letterSpacing: 0.2,
 });
 
-export default function MusicPlayerSlider({audioElement}) {
+export default function MusicPlayerSlider({ audioElement}) {
     const theme = useTheme();
     const duration = 200; // seconds
     const [position, setPosition] = React.useState(0);
-    const [paused, setPaused] = React.useState(false);
+    const [paused, setPaused] = React.useState(true);
+    
+    const Start = () => {
+        audioElement.current.play()
+    }
 
+    const Stop = () => {
+        audioElement.current.pause()
+    }
     function formatDuration(value) {
         const minute = Math.floor(value / 60);
         const secondLeft = value - minute * 60;
@@ -177,9 +184,12 @@ export default function MusicPlayerSlider({audioElement}) {
                             <PlayArrowRounded
                                 sx={{ fontSize: '3rem' }}
                                 htmlColor={mainIconColor}
+                                onClick={Start}
                             />
                         ) : (
-                            <PauseRounded sx={{ fontSize: '3rem' }} htmlColor={mainIconColor} />
+                            <PauseRounded
+                                onClick={Stop}
+                                sx={{ fontSize: '3rem' }} htmlColor={mainIconColor} />
                         )}
                     </IconButton>
                     <IconButton aria-label="next song">
