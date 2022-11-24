@@ -14,7 +14,9 @@ function App() {
       <MusicPlayerSlider
         audioElement={audioElement}
       />
+
       <audio
+        preload={"metadata"}
         controls
         ref={audioElement}
         src={require("./music/" + `Clarx - Shakedown [NCS Release].mp3`)}
