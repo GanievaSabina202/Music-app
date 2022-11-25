@@ -131,8 +131,7 @@ export default function MusicPlayerSlider({ audioElement }) {
             if (audioElement.current !== null)
                 setCurrTime(audioElement.current.currentTime);
         })
-    }, []);
-
+    });
 
     const mainIconColor = theme.palette.mode === 'dark' ? '#fff' : '#000';
     const lightIconColor =
@@ -245,7 +244,8 @@ export default function MusicPlayerSlider({ audioElement }) {
                 <Stack spacing={2} direction="row" sx={{ mb: 1, px: 1 }} alignItems="center">
                     <VolumeDownRounded htmlColor={lightIconColor} />
                     <Slider
-                        value={volume} onChange={handleVolumeChange}
+                        value={volume}
+                        onChange={handleVolumeChange}
                         aria-label="Volume"
                         defaultValue={20}
                         sx={{

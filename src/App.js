@@ -5,7 +5,7 @@ function App() {
   const audioElement = useRef();
 
   const Yoxla = () => {
-    // console.log(audioElement.current.currentTime)
+    console.log(audioElement.current.volume)
   }
 
 
@@ -17,15 +17,9 @@ function App() {
 
       <audio
         preload={"metadata"}
-        controls
         ref={audioElement}
         src={require("./music/" + `Clarx - Shakedown [NCS Release].mp3`)}
       />
-
-      <button
-        onClick={Yoxla}
-        style={{ position: "relative" }}
-      >Yoxla</button>
     </>
   );
 }
